@@ -1,0 +1,10 @@
+[db]
+dsn = 'postgresql://postgres:wawwr@localhost/org_network'
+
+[server]
+host = '0.0.0.0'
+port = 8040
+debug = true
+
+[org]
+file = '~/org/x.org'
