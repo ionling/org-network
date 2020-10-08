@@ -57,12 +57,19 @@
                      (get "file")))
   (await (bind))
   (await (.status Node.delete.gino))
-  (for [r (get-heading-records org-file)]
-    (await (.create Node
-                    :id r.id
-                    :parent-id r.parent-id
-                    :title r.title
-                    :level r.level)))
+  (await (as-> (get cfg "org") it
+               (get it "file")
+               (get-heading-records it)
+               (map (fn [r]
+                      {
+                       "id" r.id
+                       "parent_id" r.parent-id
+                       "title" r.title
+                       "level" r.level
+                       })
+                    it)
+               (list it)
+               (.gino.all (.insert Node) it)))
   (await (close)))
 
 
