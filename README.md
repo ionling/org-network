@@ -6,7 +6,7 @@ Visualize the org mode tree in browser.
 
 ```sh
 pipenv install
-cp ocnfig.demo.toml config.toml
+cp config.demo.toml config.toml
 # Modify the `config.toml` file
 hy refresh-db.hy
 hy api.hy

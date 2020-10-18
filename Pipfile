@@ -10,6 +10,7 @@ sanic = "*"
 hy = "*"
 gino = "*"
 toml = "*"
+sanic-openapi = "*"
 
 [requires]
 python_version = "3.8"

@@ -1,7 +1,10 @@
 (import asyncio)
 
+(import docs)
+
 (import [sanic [Sanic Blueprint]])
 (import [sanic.response [json]])
+(import [sanic_openapi [doc swagger_blueprint]])
 
 (import [config [cfg]])
 (import [models [bind close Node]])
@@ -30,16 +33,18 @@
 
 
 #@((.route node-bp "/")
-    (defn/a index [req]
-      (json (->> (await (.all Node.query.gino))
-                 (map (fn [node] (.to_dict node)))
-                 list))))
+    (.produces doc (.List doc (. docs NodeResp)) :content-type "application/json")
+   (defn/a index [req]
+     (json (->> (await (.all Node.query.gino))
+                (map (fn [node] (.to_dict node)))
+                list))))
 
 
 (.static app "" "static/index.html")
 (.static app "/static" "static")
 
 (.blueprint app api)
+(.blueprint app swagger_blueprint)
 
 
 (defmain [&rest args]
