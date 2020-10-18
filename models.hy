@@ -36,7 +36,7 @@
 
 
 (defmain [&rest args]
-  (print "Create all tables")
+  (print "Creating all tables")
   (-> asyncio
       .get_event_loop
       (.run_until_complete (create))))

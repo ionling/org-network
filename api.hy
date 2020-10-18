@@ -1,16 +1,23 @@
 (import asyncio)
 
 (import docs)
+(import models)
 
+(import [humps [camelize]])
 (import [sanic [Sanic Blueprint]])
 (import [sanic.response [json]])
-(import [sanic_openapi [doc swagger_blueprint]])
+(import [sanic-openapi [doc swagger_blueprint]])
 
 (import [config [cfg]])
 (import [models [bind close Node]])
 
 
 (setv app (Sanic "org-network"))
+
+(defn to-resp [data]
+  (cond [(isinstance data dict) (camelize data)]
+        [(isinstance data (. models db Model))
+         (to-resp (.to-dict data))]))
 
 
 #@((.listener app "before_server_start")
@@ -36,7 +43,7 @@
     (.produces doc (.List doc (. docs NodeResp)) :content-type "application/json")
    (defn/a index [req]
      (json (->> (await (.all Node.query.gino))
-                (map (fn [node] (.to_dict node)))
+                (map (fn [node] (to-resp node)))
                 list))))
 
 
