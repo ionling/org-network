@@ -42,9 +42,18 @@
 #@((.route node-bp "/")
     (.produces doc (.List doc (. docs NodeResp)) :content-type "application/json")
    (defn/a index [req]
-     (json (->> (await (.all Node.query.gino))
-                (map (fn [node] (to-resp node)))
-                list))))
+     (setv q (.get req.args "q"))
+     (setv query
+           (lif-not q
+                    Node.query
+                    (.where Node.query
+                            (.like Node.title f"%{q}%"))))
+     (->> query.gino
+          .all
+          await
+          (map (fn [node] (to-resp node)))
+          list
+          json)))
 
 
 (.static app "" "static/index.html")
