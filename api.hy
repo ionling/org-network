@@ -6,6 +6,7 @@
 (import [humps [camelize]])
 (import [sanic [Sanic Blueprint]])
 (import [sanic.response [json]])
+(import [sanic_cors [CORS]])
 (import [sanic-openapi [doc swagger_blueprint]])
 
 (import [config [cfg]])
@@ -13,6 +14,7 @@
 
 
 (setv app (Sanic "org-network"))
+(CORS app :resources {r"/api/*" {"origins" "*"}})
 
 (defn to-resp [data]
   (cond [(isinstance data dict) (camelize data)]

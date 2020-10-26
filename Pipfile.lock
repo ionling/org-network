@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b7916f557f600fcb98a7333577ea6ebc6d5bc4491061811b438dedc1cf52dba9"
+            "sha256": "8cd2029b63340cfd90aac7dd82818ca5b14bc60a37b9103017b71a5f3f205b12"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -170,6 +170,14 @@
             ],
             "version": "==4.7.6"
         },
+        "pyhumps": {
+            "hashes": [
+                "sha256:01612603c5ad73a407299d806d30708a3935052276fdd93776953bccc0724e0a",
+                "sha256:58b367b73c57b64e32d211dc769addabd68ff6db07ce64b2e6565f7d5a12291f"
+            ],
+            "index": "pypi",
+            "version": "==1.6.1"
+        },
         "rfc3986": {
             "extras": [
                 "idna2008"
@@ -189,11 +197,19 @@
         },
         "sanic": {
             "hashes": [
-                "sha256:202b75fbf334140cffe559f18772c08263ad97e3534cda3597bc7c3446311526",
-                "sha256:30e83d9f677b609d6b8ccab7c9551ca7e9a5f19ac0579f5aa10199ab6d4138ed"
+                "sha256:d91bf266f672460ff0be1a421fec4bb2ec572490bbf4453de0c2057994140341",
+                "sha256:e0a54dc637042e6b9b5db965a9e41891500190de20e4573e874adfe043d428f7"
             ],
             "index": "pypi",
-            "version": "==20.6.3"
+            "version": "==20.9.0"
+        },
+        "sanic-cors": {
+            "hashes": [
+                "sha256:abb0f8b17d2ecb12d62ecac42ca62bfed9b07fd00ffd83219ad23b99d4df3f23",
+                "sha256:b919d65643de810ed1ed15657b8bc75c310fa1ac8eb491d59deaa9404756b745"
+            ],
+            "index": "pypi",
+            "version": "==0.10.0.post3"
         },
         "sanic-openapi": {
             "hashes": [
@@ -201,6 +217,13 @@
             ],
             "index": "pypi",
             "version": "==0.6.2"
+        },
+        "sanic-plugins-framework": {
+            "hashes": [
+                "sha256:958a648a891526022c33ef20f041782a211ad8bfe7efa21ec9626b9ac59ac6e8",
+                "sha256:eea5b874c15255467c21acfb2e8b16b0e6bff5d11dffed698c63b2e759f3ec50"
+            ],
+            "version": "==0.9.4.post1"
         },
         "sniffio": {
             "hashes": [

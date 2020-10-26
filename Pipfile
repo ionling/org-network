@@ -11,6 +11,8 @@ hy = "*"
 gino = "*"
 toml = "*"
 sanic-openapi = "*"
+pyhumps = "*"
+sanic-cors = "*"
 
 [requires]
 python_version = "3.8"
